@@ -19,6 +19,7 @@ BaseObject::~BaseObject()
 
 bool BaseObject::LoadImg(string path, SDL_Renderer* screen)
 {
+	Free();
 	SDL_Texture* new_texture = NULL;
 	SDL_Surface* load_surface = IMG_Load(path.c_str());
 	if (load_surface != NULL) {
@@ -38,6 +39,10 @@ bool BaseObject::LoadImg(string path, SDL_Renderer* screen)
 void BaseObject::Render(SDL_Renderer* des, const SDL_Rect* clip)
 {
 	SDL_Rect renderer_quad = { rect_.x, rect_.y,rect_.w, rect_.h };
+	if (clip != NULL) {
+		renderer_quad.w = clip->w;
+		renderer_quad.h = clip->h;
+	}
 	SDL_RenderCopy(des, p_object_, clip, &renderer_quad);
 
 }
