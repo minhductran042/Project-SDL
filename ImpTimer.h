@@ -2,7 +2,9 @@
 #ifndef IMP_TIMER_H_
 #define IMP_TIMER_H_
 
-class ImpTimer {
+
+class ImpTimer
+{
 public:
 	ImpTimer();
 	~ImpTimer();
@@ -13,7 +15,7 @@ public:
 	void unpaused();
 
 	int get_ticks();
-
+	
 	bool is_started();
 	bool is_paused();
 
@@ -24,4 +26,9 @@ private:
 	bool is_paused_;
 	bool is_started_;
 };
-#endif // !IMP_TIMER_H_''
+
+
+
+
+
+#endif
